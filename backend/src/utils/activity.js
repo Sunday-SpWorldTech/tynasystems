@@ -1,0 +1,2 @@
+import Activity from '../models/Activity.js';
+export async function logActivity(req,payload={}){try{const sourceUser=req?.currentUser||req?.user||{};return await Activity.create({type:payload.type,user:payload.user||sourceUser.id||sourceUser._id,name:payload.name||sourceUser.name||'',email:(payload.email||sourceUser.email||'').toLowerCase().trim(),title:payload.title||'',detail:payload.detail||'',metadata:payload.metadata||{},ip:req?.ip||'',userAgent:req?.headers?.['user-agent']||''});}catch(error){console.warn('Activity logging failed:',error.message);return null;}}

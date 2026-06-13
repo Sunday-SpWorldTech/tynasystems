@@ -1,0 +1,29 @@
+services:
+  - type: web
+    name: tynasystems-backend
+    env: node
+    rootDir: backend
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: NODE_VERSION
+        value: 20
+      - key: NODE_ENV
+        value: production
+      - key: CLIENT_URL
+        value: https://tynasystems-frontend.onrender.com
+      - key: FRONTEND_URL
+        value: https://tynasystems-frontend.onrender.com
+      - key: CORS_ORIGINS
+        value: https://tynasystems-frontend.onrender.com,http://localhost:5173,http://127.0.0.1:5173
+      - key: PAYSTACK_CALLBACK_URL
+        value: https://tynasystems-frontend.onrender.com/demo-checkout.html
+
+  - type: static
+    name: tynasystems-frontend
+    rootDir: frontend
+    buildCommand: echo Static frontend ready
+    staticPublishPath: .
+    envVars:
+      - key: NODE_VERSION
+        value: 20

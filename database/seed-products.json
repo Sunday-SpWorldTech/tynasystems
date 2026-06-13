@@ -1,0 +1,5 @@
+[
+  { "title": "Backend OS Demo", "slug": "backend-os-demo", "price": 7, "currency": "USD", "category": "Demo" },
+  { "title": "Full Backend OS Template", "slug": "full-template", "price": 149, "currency": "USD", "category": "Template" },
+  { "title": "Done-For-You OS Build", "slug": "done-for-you", "price": 699, "currency": "USD", "category": "Implementation" }
+]
