@@ -1,0 +1,5 @@
+[
+  { "name": "Backend OS Demo", "title": "Backend OS Demo", "slug": "backend-os-demo", "priceUSD": 6.99, "priceNGN": 11184, "currency": "USD", "category": "Demo" },
+  { "name": "Backend OS Full Template", "title": "Backend OS Full Template", "slug": "backend-os-template", "priceUSD": 149, "priceNGN": 238400, "currency": "USD", "category": "Template" },
+  { "name": "Done-For-You Backend OS Build", "title": "Done-For-You Backend OS Build", "slug": "done-for-you-build", "priceUSD": 599, "priceNGN": 958400, "currency": "USD", "category": "Implementation" }
+]

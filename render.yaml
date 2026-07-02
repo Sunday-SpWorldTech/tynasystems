@@ -1,0 +1,109 @@
+services:
+  - type: web
+    name: tynasystems-backend
+    env: node
+    rootDir: backend
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: NODE_VERSION
+        value: 20
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 5000
+      - key: CLIENT_URL
+        value: https://tynasystems.com
+      - key: FRONTEND_URL
+        value: https://tynasystems.com
+      - key: CORS_ORIGINS
+        value: https://tynasystems.com,https://www.tynasystems.com,https://tynasystems-frontend.onrender.com,http://localhost:5173,http://127.0.0.1:5173
+      - key: MONGODB_URI
+        sync: false
+      - key: JWT_SECRET
+        sync: false
+      - key: ADMIN_USERNAME
+        sync: false
+      - key: ADMIN_EMAIL
+        sync: false
+      - key: ADMIN_PASSWORD
+        sync: false
+      - key: GOOGLE_CLIENT_ID
+        value: 206651253007-2numssoattkghh0hlup21eea1e7bv6gb.apps.googleusercontent.com
+      - key: GOOGLE_CLIENT_SECRET
+        sync: false
+      - key: GOOGLE_SECRET_ID
+        sync: false
+      - key: GOOGLE_CALLBACK_URL
+        value: https://tynasystems-backend.onrender.com/api/auth/google/callback
+      - key: PAYSTACK_SECRET_KEY
+        sync: false
+      - key: PAYSTACK_PUBLIC_KEY
+        sync: false
+      - key: PAYSTACK_CALLBACK_URL
+        value: https://tynasystems.com/dashboard.html
+      - key: PAYSTACK_PROJECT_CALLBACK_URL
+        value: https://tynasystems.com/developer-tools.html#project-payment
+      - key: PLATFORM_CURRENCY
+        value: USD
+      - key: SMTP_HOST
+        value: smtp.gmail.com
+      - key: SMTP_PORT
+        value: 587
+      - key: SMTP_SECURE
+        value: false
+      - key: SMTP_USER
+        sync: false
+      - key: SMTP_PASS
+        sync: false
+      - key: EMAIL_FROM
+        sync: false
+      - key: EMAIL_FROM_NAME
+        value: Tyna Systems
+      - key: DEV_USERNAME
+        sync: false
+      - key: DEV_EMAIL
+        sync: false
+      - key: DEV_PASSWORD
+        sync: false
+      - key: DEVELOPER_UPLOAD_LIMIT_MB
+        value: 500
+      - key: SYSTEMS_PAYMENT_CHARGE_PERCENT
+        value: 5
+      - key: SYSTEMS_PAYMENT_CHARGE_DESCRIPTION
+        value: Platform Infrastructure & Plugin Maintenance Allocation
+
+      - key: GOOGLE_AI_STUDIO_API_KEY
+        sync: false
+      - key: GEMINI_API_KEY
+        sync: false
+      - key: GOOGLE_AI_STUDIO_MODEL
+        value: gemini-1.5-flash
+      - key: ACADEMY_USE_GOOGLE_AI_STUDIO
+        value: true
+      - key: PUBLIC_WHATSAPP_NUMBER
+        value: 08163294809
+      - key: PUBLIC_WHATSAPP_INTERNATIONAL
+        value: 2348163294809
+
+  - type: static
+    name: tynasystems-frontend
+    rootDir: frontend
+    buildCommand: node scripts/write-config.js
+    staticPublishPath: .
+    envVars:
+      - key: NODE_VERSION
+        value: 20
+      - key: VITE_API_URL
+        value: https://tynasystems-backend.onrender.com
+      - key: VITE_GOOGLE_CLIENT_ID
+        value: 206651253007-2numssoattkghh0hlup21eea1e7bv6gb.apps.googleusercontent.com
+      - key: VITE_PAYSTACK_PUBLIC_KEY
+        sync: false
+      - key: VITE_SITE_URL
+        value: https://tynasystems.com
+      - key: VITE_PUBLIC_WHATSAPP_NUMBER
+        value: 08163294809
+      - key: VITE_PUBLIC_WHATSAPP_INTERNATIONAL
+        value: 2348163294809
+

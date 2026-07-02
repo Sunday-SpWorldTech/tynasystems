@@ -1,0 +1,19 @@
+User-agent: *
+Allow: /
+Disallow: /admin.html
+Disallow: /admin-login.html
+Disallow: /dev.html
+Disallow: /dev-dashboard.html
+Disallow: /dev-login.html
+Disallow: /staff.html
+Disallow: /staff-login.html
+Disallow: /dashboard.html
+Disallow: /settings.html
+Disallow: /support-workspace.html
+Disallow: /contact-staff.html
+Disallow: /social-worker-dashboard.html
+Disallow: /api/
+
+Sitemap: https://tynasystems.com/sitemap.xml
+Disallow: /dev-dashboard
+Disallow: /dev

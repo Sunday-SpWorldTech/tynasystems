@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="index,follow">
+  <meta name="description" content="Verify a Tyna Coding Academy certificate by entering the certificate ID.">
+  <title>Verify Certificate | Tyna Coding Academy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/design-system.css">
+</head>
+<body>
+  <main>
+    <section class="page-hero dark">
+      <div class="container narrow center">
+        <span class="kicker">Certificate Verification</span>
+        <h1>Verify a Tyna Coding Academy certificate.</h1>
+        <p class="lead narrow">Enter a certificate ID to confirm whether the certificate was awarded by Tyna Systems Coding Academy.</p>
+      </div>
+    </section>
+    <section class="section">
+      <div class="container narrow">
+        <form class="card app-form" data-certificate-verify-form>
+          <h2>Certificate Lookup</h2>
+          <label>Certificate ID<input name="certificateId" required placeholder="Example: TYNA-CERT-2026-0001"></label>
+          <button class="btn gold" type="submit">Verify Certificate</button>
+          <div class="hidden" data-form-message style="margin-top:14px"></div>
+          <div data-certificate-result style="margin-top:16px"></div>
+        </form>
+      </div>
+    </section>
+  </main>
+  <script src="assets/js/config.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
