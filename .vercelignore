@@ -1,0 +1,10 @@
+# Secrets and local state
+.env
+.env.*
+backend/.env
+frontend/.env
+.git
+.git/**
+node_modules
+backend/node_modules
+frontend/node_modules

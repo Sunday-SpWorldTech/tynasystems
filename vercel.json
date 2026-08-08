@@ -1,6 +1,8 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "version": 2,
+  "buildCommand": "npm run vercel-build",
+  "outputDirectory": "public",
   "functions": {
     "api/index.js": {
       "maxDuration": 30,
@@ -9,15 +11,15 @@
   },
   "rewrites": [
     {
-      "source": "/api/(.*)",
+      "source": "/api/:path*",
       "destination": "/api/index"
     },
     {
-      "source": "/uploads/(.*)",
+      "source": "/uploads/:path*",
       "destination": "/api/index"
     },
     {
-      "source": "/assets/images/uploads/(.*)",
+      "source": "/assets/images/uploads/:path*",
       "destination": "/api/index"
     },
     {
@@ -45,64 +47,44 @@
       "destination": "/api/index"
     },
     {
-      "source": "/assets/(.*)",
-      "destination": "/frontend/assets/$1"
-    },
-    {
-      "source": "/favicon.ico",
-      "destination": "/frontend/favicon.ico"
-    },
-    {
-      "source": "/favicon.png",
-      "destination": "/frontend/favicon.png"
-    },
-    {
-      "source": "/robots.txt",
-      "destination": "/frontend/robots.txt"
-    },
-    {
-      "source": "/sitemap.xml",
-      "destination": "/frontend/sitemap.xml"
-    },
-    {
       "source": "/",
-      "destination": "/frontend/index.html"
+      "destination": "/index.html"
     },
     {
       "source": "/admin-dashboard",
-      "destination": "/frontend/admin.html"
+      "destination": "/admin.html"
     },
     {
       "source": "/staff-dashboard",
-      "destination": "/frontend/admin.html"
+      "destination": "/admin.html"
     },
     {
       "source": "/join-free",
-      "destination": "/frontend/joinfree.html"
+      "destination": "/joinfree.html"
     },
     {
       "source": "/coding-academy",
-      "destination": "/frontend/tyna-coding-academy.html"
+      "destination": "/tyna-coding-academy.html"
     },
     {
       "source": "/internship-opportunity",
-      "destination": "/frontend/internships.html"
+      "destination": "/internships.html"
     },
     {
-      "source": "/(.*\\.html)",
-      "destination": "/frontend/$1"
+      "source": "/login",
+      "destination": "/login.html"
     },
     {
-      "source": "/(.*\\.(?:css|js|mjs|map|json|xml|txt|png|jpg|jpeg|gif|svg|webp|ico|avif|woff|woff2|ttf|eot|pdf))",
-      "destination": "/frontend/$1"
+      "source": "/dashboard",
+      "destination": "/dashboard.html"
     },
     {
-      "source": "/([^/.]+)",
-      "destination": "/frontend/$1.html"
+      "source": "/settings",
+      "destination": "/settings.html"
     },
     {
-      "source": "/(.*)",
-      "destination": "/frontend/index.html"
+      "source": "/support",
+      "destination": "/support.html"
     }
   ]
 }

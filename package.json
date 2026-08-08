@@ -7,15 +7,15 @@
     "dev": "concurrently \"npm run dev --prefix backend\" \"npm run dev --prefix frontend\"",
     "start": "npm start --prefix backend",
     "seed": "npm run seed --prefix backend",
-    "build": "npm run write-config --prefix frontend",
+    "build": "node scripts/vercel-build.mjs",
     "postinstall": "npm install --prefix backend && npm install --prefix frontend",
-    "vercel-build": "npm run write-config --prefix frontend"
+    "vercel-build": "node scripts/vercel-build.mjs"
   },
   "devDependencies": {
     "concurrently": "^9.1.2"
   },
   "engines": {
-    "node": "24.x"
+    "node": "20.x"
   },
   "type": "module"
 }

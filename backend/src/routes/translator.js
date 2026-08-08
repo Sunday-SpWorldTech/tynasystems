@@ -16,11 +16,17 @@ function config() {
 
 function headers() {
   const { key, region } = config();
+  const normalizedRegion = String(region || '').trim();
   const value = {
     'Content-Type': 'application/json; charset=UTF-8',
     'Ocp-Apim-Subscription-Key': key
   };
-  if (region) value['Ocp-Apim-Subscription-Region'] = region;
+  // Azure single-service global Translator resources must not send the literal
+  // region value 'global'. The region header is only required for regional or
+  // multi-service resources.
+  if (normalizedRegion && normalizedRegion.toLowerCase() !== 'global') {
+    value['Ocp-Apim-Subscription-Region'] = normalizedRegion;
+  }
   return value;
 }
 

@@ -13,7 +13,7 @@ const router = express.Router();
 const TOKEN_LIFETIME_YEARS = Number(process.env.TYNA_DEV_TRANSFER_TOKEN_LIFETIME_YEARS || 100);
 
 function tokenSecret() {
-  return process.env.TYNA_SECRET_KEY || process.env.TYNA_TRANSFER_TOKEN_SECRET || process.env.JWT_SECRET;
+  return process.env.TYNA_SECRET_KEY || process.env.TYNA_SECRET || process.env.TYNA_TOKEN_SECRET || process.env.TYNA_TRANSFER_TOKEN_SECRET || process.env.JWT_SECRET;
 }
 
 function hashToken(token = '') {
@@ -25,7 +25,7 @@ function createReference() {
 }
 
 function requireInternalApiKey(req, res, next) {
-  const expected = process.env.TYNA_API_KEY;
+  const expected = process.env.TYNA_API_KEY || process.env.TYNA_INTERNAL_API_KEY;
   const received = req.headers['x-internal-api-key'];
   if (!expected || !received || received !== expected) {
     return res.status(401).json({ success: false, message: 'Unauthorized internal request.' });

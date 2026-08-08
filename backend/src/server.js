@@ -101,6 +101,27 @@ app.all('/api/route-check', (req, res) => {
   res.status(200).json({ ok: true, method: req.method, path: req.path, runtime: process.env.VERCEL ? 'vercel' : 'node' });
 });
 
+app.get('/api/runtime-config', (req, res) => {
+  const translatorRegion = String(process.env.AZURE_TRANSLATOR_REGION || '').trim();
+  res.json({
+    ok: true,
+    login: {
+      mongodbConfigured: hasEnv('MONGODB_URI') || hasEnv('MONGO_URI'),
+      jwtConfigured: hasEnv('JWT_SECRET')
+    },
+    translator: {
+      keyConfigured: hasEnv('AZURE_TRANSLATOR_KEY'),
+      endpointConfigured: hasEnv('AZURE_TRANSLATOR_ENDPOINT'),
+      mode: translatorRegion.toLowerCase() === 'global' || !translatorRegion ? 'global' : 'regional',
+      regionConfigured: Boolean(translatorRegion)
+    },
+    frontend: {
+      clientUrlConfigured: hasEnv('CLIENT_URL'),
+      frontendUrlConfigured: hasEnv('FRONTEND_URL')
+    }
+  });
+});
+
 app.get('/api/health', (req, res) => {
   res.json({
     ok: true,
