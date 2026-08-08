@@ -1,0 +1,5 @@
+import mongoose from 'mongoose';
+const ActivitySchema = new mongoose.Schema({type:{type:String,required:true,enum:['registration','login','dashboard_visit','purchase','download','checkout_attempt','contact_submission','support_action','staff_action','withdrawal_request','developer_request','developer_message','developer_action','social_worker_action','maintenance_mode','academy_enrollment','academy_verification','academy_progress','academy_admin_update','academy_developer_update','academy_certificate']},user:{type:mongoose.Schema.Types.ObjectId,ref:'User'},name:{type:String,trim:true,default:''},email:{type:String,lowercase:true,trim:true,default:''},title:{type:String,trim:true,default:''},detail:{type:String,trim:true,default:''},metadata:{type:Object,default:{}},ip:{type:String,default:''},userAgent:{type:String,default:''}},{timestamps:true});
+ActivitySchema.index({type:1,createdAt:-1});ActivitySchema.index({user:1,createdAt:-1});
+export default mongoose.model('Activity',ActivitySchema);
+

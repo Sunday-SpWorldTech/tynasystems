@@ -1,0 +1,108 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "version": 2,
+  "functions": {
+    "api/index.js": {
+      "maxDuration": 30,
+      "includeFiles": "backend/private-views/**"
+    }
+  },
+  "rewrites": [
+    {
+      "source": "/api/(.*)",
+      "destination": "/api/index"
+    },
+    {
+      "source": "/uploads/(.*)",
+      "destination": "/api/index"
+    },
+    {
+      "source": "/assets/images/uploads/(.*)",
+      "destination": "/api/index"
+    },
+    {
+      "source": "/dev",
+      "destination": "/api/index"
+    },
+    {
+      "source": "/dev-login",
+      "destination": "/api/index"
+    },
+    {
+      "source": "/dev-dashboard",
+      "destination": "/api/index"
+    },
+    {
+      "source": "/dev.html",
+      "destination": "/api/index"
+    },
+    {
+      "source": "/dev-login.html",
+      "destination": "/api/index"
+    },
+    {
+      "source": "/dev-dashboard.html",
+      "destination": "/api/index"
+    },
+    {
+      "source": "/assets/(.*)",
+      "destination": "/frontend/assets/$1"
+    },
+    {
+      "source": "/favicon.ico",
+      "destination": "/frontend/favicon.ico"
+    },
+    {
+      "source": "/favicon.png",
+      "destination": "/frontend/favicon.png"
+    },
+    {
+      "source": "/robots.txt",
+      "destination": "/frontend/robots.txt"
+    },
+    {
+      "source": "/sitemap.xml",
+      "destination": "/frontend/sitemap.xml"
+    },
+    {
+      "source": "/",
+      "destination": "/frontend/index.html"
+    },
+    {
+      "source": "/admin-dashboard",
+      "destination": "/frontend/admin.html"
+    },
+    {
+      "source": "/staff-dashboard",
+      "destination": "/frontend/admin.html"
+    },
+    {
+      "source": "/join-free",
+      "destination": "/frontend/joinfree.html"
+    },
+    {
+      "source": "/coding-academy",
+      "destination": "/frontend/tyna-coding-academy.html"
+    },
+    {
+      "source": "/internship-opportunity",
+      "destination": "/frontend/internships.html"
+    },
+    {
+      "source": "/(.*\\.html)",
+      "destination": "/frontend/$1"
+    },
+    {
+      "source": "/(.*\\.(?:css|js|mjs|map|json|xml|txt|png|jpg|jpeg|gif|svg|webp|ico|avif|woff|woff2|ttf|eot|pdf))",
+      "destination": "/frontend/$1"
+    },
+    {
+      "source": "/([^/.]+)",
+      "destination": "/frontend/$1.html"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/frontend/index.html"
+    }
+  ]
+}
